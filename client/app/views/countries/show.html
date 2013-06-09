@@ -1,0 +1,32 @@
+<h2 class="country">{{country|titleize}}</h2>
+
+<div class="row">
+  <div class="span9">
+    <div class="wiki"> 
+      <p ng-repeat="p in paragraphs" ng-bind-html-unsafe="p"></p>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="country-sidebar">
+      <img ng-src="http://www.geonames.org/flags/x/{{code|lowercase}}.gif" />
+      <div>
+        <h3>Quick Facts</h3>
+        <b>Capital:</b> {{info.capital}}<br />
+        <b>Currency:</b> {{info.currencyCode | expandCurrency}}<br />
+        <b>Continent:</b> {{info.continentName}}<br />
+        <b>Population:</b> {{info.population | addCommas}}<br />
+        <b>Language(s):</b> {{info.languages | expandLanguages}}
+      </div>
+      <div>
+        <h3>In the News</h3>
+        <ul>
+          <a ng-repeat="article in news" ng-href="{{article.url}}">
+            <li>
+              {{article.title}}
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

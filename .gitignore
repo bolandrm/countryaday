@@ -1,0 +1,12 @@
+.DS_Store
+/client/node_modules
+/client/app/lib/flat/css
+/client/app/lib/flat/fonts
+/client/app/lib/flat/images
+/client/app/lib/flat/mixins.less
+/client/app/lib/flat/social-icons-font.less
+/client/app/lib/flat/flat-ui.less
+/client/app/lib/flat/icon-font.less
+/client/app/lib/flat/js
+/client/app/lib/flat/modules
+/client/app/lib/flat/spaces.less

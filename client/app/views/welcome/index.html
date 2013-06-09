@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="span4">
+    <div class="tile">
+      <div class="img-container"><img src="/images/map.png" /></div>
+      <h3 class="tile-title red">Learn</h3>
+      <p>Learn about a different <br />country each day.</p>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="tile">
+      <div class="img-container"><img src="/images/map.png" /></div>
+      <h3 class="tile-title purple">Progress</h3>
+      <p>Create an account to <br />track your progress.</p>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="tile">
+      <div class="img-container"><img src="/images/map.png" /></div>
+      <h3 class="tile-title green">Review</h3>
+      <p>Review what you've <br />learned at any time.</p>
+    </div>
+  </div>
+</div>
+
+<div class="welcome-buttons" ng-controller="WelcomeController">
+  <a ng-click="learnFirstCountry()" class="btn btn-huge btn-block btn-success btn-first-country">Learn about your first country!</a>
+  <a href="/auth/facebook" class="btn btn-small btn-social-facebook">
+    <i class="fui-facebook"></i> Sign in with Facebook
+  </a>
+  <a href="/auth/twitter" class="btn btn-small btn-social-twitter">
+    <i class="fui-twitter"></i> Sign in with Twitter
+  </a>
+  <a href="auth/google_oauth2" class="btn btn-small btn-social-googleplus">
+    <i class="fui-googleplus"></i> Sign in with Google
+  </a>
+</div>
+
+

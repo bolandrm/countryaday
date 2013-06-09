@@ -1,0 +1,101 @@
+@import "../../lib/bootstrap-2.2.2/less/bootstrap.less";
+@import "../../lib/bootstrap-2.2.2/less/responsive.less";
+
+@import "../../lib/flat/flat-ui.less";
+@import "../../lib/jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.css";
+
+body, html {
+  background-color: #3498DB;
+}
+
+.title {
+  h1 { font-size: 30px; margin-bottom: 0px; }
+  a { color: #FFFFFF }
+  color: #FFFFFF;
+}
+
+.map {
+  background-color: #FFFFFF;
+  margin-top: 10px;
+  .border-radius(6px);
+  padding: 4px;
+  height: 300px;
+  path { cursor: hand; cursor: pointer }
+}
+
+.main {
+  background-color: #FFFFFF;
+  .border-radius(6px);
+  margin: 10px 0 10px 0;
+  padding: 20px 0 20px 0;
+  overflow: auto;
+}
+
+.footer {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.welcome-buttons {
+  margin-top: 10px;
+  padding: 0 20px 0 20px;
+  text-align: center;
+}
+
+.btn-first-country {
+  margin-bottom: 10px;
+}
+
+.tile {
+  margin: 0 20px 0 20px;
+  padding: 10px 0 10px 0;
+  background-color: #ECF0F5;
+  .border-radius(6px);
+  h3.tile-title { 
+    font-size: 20px; 
+    text-align: center;
+  }
+  h3.red { color: #E74C3C; }
+  h3.purple { color: #8E44AD; }
+  h3.green { color: #27AE60; }
+  p {
+    text-align: center;
+    font-size: 15px;
+  }
+  .img-container { margin: 0 10px 10px 10px; }
+  img { 
+    width: 100%; 
+    .border-radius(6px);
+  }
+}
+
+h2.country {
+  margin: 0 0 0 20px;
+  font-size: 40px;
+}
+
+.country-sidebar {
+  margin-right: 20px; 
+  img {
+    .border-radius(6px);
+  }
+  div {
+    h3 { font-size: 17px; margin: 0px; text-align: center; }
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #DDDDDD;
+    .border-radius(6px);
+    ul {
+      margin-left: 18px;
+      font-size: 13px;
+      li { margin-bottom: 5px; }
+    }
+  }
+}
+
+.wiki {
+  padding: 0 20px 10px 20px;
+  p { font-size: 15px; }
+  .error, #coordinates, .reference { display: none; }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="countryaday">
+  <head>
+    <meta charset="utf-8">
+    <title>Country a Day</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <link href="css/app.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row title">
+        <div class="span12">
+          <h1><a href="#/welcome">Country a Day</a></h1>
+          Learn about a new country every day!
+          Hi {{username}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <worldmap></worldmap>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <div class="main">
+            <div ng-view></div>
+          </div>
+        </div>
+      </div> <!-- /row -->
+    <div class="row">
+      <div class="span12 footer">
+        Created by <u>Ryan Boland</u> with the help of <u>various libraries</u>. &nbsp;
+        Source available on <u>Github</u>.
+      </div>
+    </div>
+    </div><!-- /.container -->
+
+
+    <!-- DEVELOPMENT JS -->
+    <script src="lib/flat/js/jquery-1.8.3.min.js"></script>
+    <script src="lib/jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="lib/jquery-jvectormap-1.2.2/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-cookies.js"></script>
+    <script src="js/app.js"></script>
+    <!-- PRODUCTION JS -->
+    <!--
+    <script src="js/app.min.js"></script>
+    -->
+    <!-- END JS -->
+  </body>
+</html>
