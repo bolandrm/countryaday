@@ -1,4 +1,5 @@
 .DS_Store
+/server/config/application.yml
 /client/node_modules
 /client/app/lib/flat/css
 /client/app/lib/flat/fonts
