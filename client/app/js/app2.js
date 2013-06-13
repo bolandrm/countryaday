@@ -331,6 +331,9 @@ countries.filter('expandLanguages', function() {
   return function(text) {
     var code, codes, out, _i, _len, _ref;
 
+    if (text === void 0) {
+      return "";
+    }
     out = [];
     _ref = text.split(',');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -352,6 +355,9 @@ countries.filter('expandLanguages', function() {
 
 countries.filter('addCommas', function() {
   return function(number) {
+    if (number === void 0) {
+      return "";
+    }
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 });
@@ -454,19 +460,5 @@ countries.factory('MapValues', [
       MapValues.setToday(firstCountryCode);
     }
     return MapValues;
-  }
-]);
-
-welcome.controller('WelcomeController', [
-  '$scope', '$location', '$cookieStore', 'MapValues', 'Country', function($scope, $location, $cookieStore, MapValues, Country) {
-    MapValues.setCurrent();
-    return $scope.learnFirstCountry = function() {
-      var firstCountry;
-
-      firstCountry = Country.randomCountry();
-      $cookieStore.put('firstCountry', firstCountry.code);
-      $location.path("/country/" + firstCountry.name);
-      return MapValues.setToday(firstCountry.code);
-    };
   }
 ]);
