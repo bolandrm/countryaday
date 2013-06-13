@@ -47,7 +47,9 @@ countries.factory('Wikipedia', ['$http', '$q', function($http, $q) {
         return cache[country];
       } else {
         var summary = $q.defer();
-        var url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&rvparse=1&titles=' + country + "&format=json&redirects=1&callback=JSON_CALLBACK";
+        var url = 'http://en.wikipedia.org/w/api.php?action=query' +
+                  '&prop=revisions&rvprop=content&rvsection=0&rvparse=1&titles=' +
+                  country + "&format=json&redirects=1&callback=JSON_CALLBACK";
 
         $http.jsonp(url).success(function(data) {
           var paragraphs = extractParagraphs(data);
