@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     coffee: {
       compile: {
         options: { bare: true },
-        files: { 'app/js/app.js': ['app/js/app.coffee', 'app/js/**/*.coffee'] }
+        files: { 'app/js/app2.js': ['app/js/**/*.coffee'] }
       }
     },
     uglify: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     watch: {
       options: { livereload: true },
       coffee: {
-        files: ['app/js/{,*/}*.coffee'],
+        files: ['app/js/{,*/}*.coffee', 'app/js/**/*.coffee'],
         tasks: ['coffee:compile']
       },
       html: { files: ['app/*.html', 'app/**/*.html', 'app/js/**/*.html'], tasks: [] },
