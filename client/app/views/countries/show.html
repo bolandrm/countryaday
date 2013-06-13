@@ -9,7 +9,7 @@
   <div class="span3">
     <div class="country-sidebar">
       <img ng-src="http://www.geonames.org/flags/x/{{code|lowercase}}.gif" />
-      <div>
+      <div ng-show="info">
         <h3>Quick Facts</h3>
         <b>Capital:</b> {{info.capital}}<br />
         <b>Currency:</b> {{info.currencyCode | expandCurrency}}<br />
