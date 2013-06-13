@@ -14,11 +14,11 @@ app.config(['$routeProvider', function($routeProvider) {
       controller: 'CountriesController',
       resolve: {
         checkCountry: ['$route', '$location', 'Country',
-            function($route, $location, Country) {
-              if (!Country.isValidCountry($route.current.params.country)) {
-                $location.path('/welcome');
-              }
+          function($route, $location, Country) {
+            if (Country.fromName($route.current.params.country) === null) {
+              $location.path('/welcome');
             }
+          }
         ],
         summary: ['$route', 'Wikipedia', function($route, Wikipedia) {
           return Wikipedia.getSummary($route.current.params.country);

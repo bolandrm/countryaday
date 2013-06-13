@@ -5,9 +5,9 @@ welcome.controller 'WelcomeController',
     MapValues.setCurrent()
     
     $scope.learnFirstCountry = () ->
-      firstCountry = Country.randomCountryCode()
-      $cookieStore.put('firstCountry', firstCountry)
-      $location.path("/country/#{Country.fromCode(firstCountry).name}")
-      MapValues.setToday(firstCountry)
+      firstCountry = Country.randomCountry()
+      $cookieStore.put('firstCountry', firstCountry.code)
+      $location.path("/country/#{firstCountry.name}")
+      MapValues.setToday(firstCountry.code)
 
   ]
