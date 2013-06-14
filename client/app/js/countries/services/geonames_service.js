@@ -20,5 +20,5 @@ countries.factory('GeoNames', ['$http', '$q', function($http, $q) {
         return info.promise;
       }
     }
-  }
+  };
 }]);

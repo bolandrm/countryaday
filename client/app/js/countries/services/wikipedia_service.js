@@ -61,5 +61,5 @@ countries.factory('Wikipedia', ['$http', '$q', function($http, $q) {
         return summary.promise
       }
     }
-  }
+  };
 }]);

@@ -18,5 +18,5 @@ countries.factory('Feedzilla', ['$http', '$q', function($http, $q) {
         return news.promise;
       }
     }
-  }
+  };
 }]);
