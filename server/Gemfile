@@ -10,4 +10,5 @@ gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'shotgun'
+  gem 'rspec'
 end
