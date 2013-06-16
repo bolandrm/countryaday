@@ -1,9 +1,6 @@
-map.directive('worldmap', [
+countries.directive('worldmap', [
   '$location', 'Country', 'User', function($location, Country, User) {
     return {
-      restrict: 'E',
-      template: '<div class="map"></div>',
-      replace: true,
       scope: {},
       controller: [
         '$scope', '$element', 'User', function($scope, $element, User) {

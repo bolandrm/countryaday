@@ -1,7 +1,7 @@
 'use strict'
 
 // Create App Module
-var app = angular.module('countryaday', ['ngCookies', 'welcome', 'countries', 'map', 'users']);
+var app = angular.module('countryaday', ['ngCookies', 'welcome', 'countries', 'users']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -44,5 +44,4 @@ app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
 // Create Sub-Modules
 var welcome = angular.module('welcome', []);
 var countries = angular.module('countries', []);
-var map = angular.module('map', []);
 var users = angular.module('users', []);
