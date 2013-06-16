@@ -1,12 +1,12 @@
 map.directive('worldmap', [
-  '$location', 'Country', 'MapValues', function($location, Country, MapValues) {
+  '$location', 'Country', 'User', function($location, Country, User) {
     return {
       restrict: 'E',
       template: '<div class="map"></div>',
       replace: true,
       scope: {},
       controller: [
-        '$scope', '$element', 'MapValues', function($scope, $element, MapValues) {
+        '$scope', '$element', 'User', function($scope, $element, User) {
           var onClick = function(e, code) {
             $scope.$apply(function() {
               $location.path("/country/" + (Country.fromCode(code).name));
@@ -17,7 +17,7 @@ map.directive('worldmap', [
             $element.vectorMap('get', 'mapObject').series.regions[0].setValues($scope.mapValues);
           };
 
-          $scope.mapValues = MapValues.values;
+          $scope.mapValues = User.countries.progress;
           $scope.$watch('mapValues', updateColors, true);
 
           $element.vectorMap( {

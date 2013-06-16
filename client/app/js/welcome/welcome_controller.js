@@ -1,7 +1,7 @@
 welcome.controller('WelcomeController', [
-  '$scope', '$location', '$cookieStore', 'MapValues', 'Country',
-  function ($scope, $location, $cookieStore, MapValues, Country) {
-    MapValues.setCurrent();
+  '$scope', '$location', '$cookieStore', 'User', 'Country',
+  function ($scope, $location, $cookieStore, User, Country) {
+    User.countries.setCurrent();
     
     $scope.learnFirstCountry = function() {
       var firstCountry = Country.randomCountry();
@@ -9,7 +9,7 @@ welcome.controller('WelcomeController', [
 
       $cookieStore.put('firstCountry', firstCountry.code);
       $location.path('/country/' + firstCountry.name);
-      MapValues.setToday(firstCountry.code);
+      User.countries.setToday(firstCountry.code);
     };
   }
 ]);
