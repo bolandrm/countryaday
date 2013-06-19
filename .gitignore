@@ -2,13 +2,13 @@
 
 /server/config/application.yml
 
-/server/public/vendor/flat/css
-/server/public/vendor/flat/fonts
-/server/public/vendor/flat/images
-/server/public/vendor/flat/mixins.less
-/server/public/vendor/flat/social-icons-font.less
-/server/public/vendor/flat/flat-ui.less
-/server/public/vendor/flat/icon-font.less
-/server/public/vendor/flat/js
-/server/public/vendor/flat/modules
-/server/public/vendor/flat/spaces.less
+/public/vendor/flat/css
+/public/vendor/flat/fonts
+/public/vendor/flat/images
+/public/vendor/flat/mixins.less
+/public/vendor/flat/social-icons-font.less
+/public/vendor/flat/flat-ui.less
+/public/vendor/flat/icon-font.less
+/public/vendor/flat/js
+/public/vendor/flat/modules
+/public/vendor/flat/spaces.less
