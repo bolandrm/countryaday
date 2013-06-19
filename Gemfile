@@ -12,9 +12,10 @@ group :development do
   gem 'guard'
   gem 'guard-less'
   gem 'guard-livereload'
+  gem 'guard-rspec'
 end
 
 group :development, :test do
-  gem 'shotgun'
   gem 'rspec'
+  gem 'capybara'
 end

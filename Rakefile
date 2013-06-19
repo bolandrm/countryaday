@@ -1,6 +1,11 @@
 desc 'Start server on port 3000 through Shotgun.'
 task :s do
-  `bundle exec shotgun config.ru -p 3000`
+  sh 'bundle exec rackup -p 3000'
+end
+
+desc 'startup guard for livereload, less compile, test run, etc'
+task :d do
+  sh 'bundle exec guard'
 end
 
 require 'rspec/core/rake_task'

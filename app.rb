@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'sinatra/reloader'
+
 require 'yaml'
 require 'omniauth'
 require 'omniauth-facebook'
@@ -18,6 +20,9 @@ class CountryADay < Sinatra::Base
   configure do
     set :public_folder, File.dirname(__FILE__) + '/public'
     set :cookie_domain, ''
+  end
+  configure :development do
+    register Sinatra::Reloader
   end
 
   get '/' do
