@@ -16,7 +16,7 @@ class CountryADay < Sinatra::Base
   end
 
   configure do
-    set :public_folder, File.dirname(__FILE__) + '/../client/app'
+    set :public_folder, File.dirname(__FILE__) + '/public'
     set :cookie_domain, ''
   end
 
