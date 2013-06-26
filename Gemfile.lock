@@ -37,6 +37,8 @@ GEM
       multi_json (~> 1.7)
     guard-rspec (1.2.1)
       guard (>= 1.1)
+    guard-shell (0.5.1)
+      guard (>= 1.1.0)
     hashie (1.2.0)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
@@ -137,6 +139,7 @@ DEPENDENCIES
   guard-less
   guard-livereload
   guard-rspec
+  guard-shell
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
