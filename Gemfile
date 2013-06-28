@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-activerecord'
+gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -14,9 +16,11 @@ group :development do
   gem 'guard-less'
   gem 'guard-livereload'
   gem 'guard-rspec'
+  gem 'racksh'
 end
 
 group :development, :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'database_cleaner'
 end

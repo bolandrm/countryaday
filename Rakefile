@@ -1,4 +1,7 @@
-desc 'Start server on port 3000 through Shotgun.'
+require 'sinatra/activerecord/rake'
+require './app'
+
+desc 'Start server on port 3000 with autoreload.'
 task :s do
   sh 'bundle exec rackup -p 3000'
 end
@@ -8,8 +11,10 @@ task :d do
   sh 'bundle exec guard'
 end
 
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec)
+desc 'start console'
+task :c do
+  sh 'racksh'
+end
 
 task :default do
   puts `rake -T`
