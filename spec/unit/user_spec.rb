@@ -2,25 +2,8 @@ require 'spec_helper'
 
 describe User do
   describe 'validations' do
-    let(:user_info) { { uid: '12345',
-                        provider: 'twitter',
-                        name: 'username',
-                        email: 'test@example.com' } }
-    let(:user) { User.new(user_info) }
-
-    it 'can have a valid user' do
-      expect(user).to be_valid
-    end
-    
-    it 'must have a UID' do
-      user.uid = nil
-      expect(user).to_not be_valid
-    end
-
-    it 'must have a provider' do
-      user.provider = nil
-      expect(user).to_not be_valid
-    end
+    it { should validate_presence_of(:uid) }
+    it { should validate_presence_of(:provider) }
   end
 
   describe '.from_omniauth' do
@@ -47,6 +30,16 @@ describe User do
 
       user = User.from_omniauth(OmniAuth.config.mock_auth[:google_oauth2])
       expect(user.email).to eq('usr@gmail.com')
+    end
+
+    it 'gets previously created user' do
+      user2 = User.from_omniauth(OmniAuth.config.mock_auth[:twitter])
+      expect(user).to eq(user2)
+    end
+
+    it 'fetches user based on uid and provider' do
+      user2 = User.from_omniauth(OmniAuth.config.mock_auth[:facebook])
+      expect(user).to_not eq(user2)
     end
   end
 end

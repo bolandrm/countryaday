@@ -2,7 +2,8 @@ require_relative 'user.rb'
 
 class CountryADay < Sinatra::Base
   get '/' do
-    erb :index
+    current_country = request.cookies['firstCountry']
+    erb :index, locals: { current_country: current_country }
   end
 
   #get '/signin' do
@@ -20,5 +21,6 @@ class CountryADay < Sinatra::Base
 
   get '/auth/:name/callback' do
     user = User.from_omniauth(request.env['omniauth.auth'])
+    redirect '/'
   end
 end
