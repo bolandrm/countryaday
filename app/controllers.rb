@@ -1,4 +1,5 @@
 require_relative 'user.rb'
+require_relative 'country_entry.rb'
 
 class CountryADay < Sinatra::Base
   get '/' do
@@ -20,7 +21,7 @@ class CountryADay < Sinatra::Base
   #end
 
   get '/auth/:name/callback' do
-    user = User.from_omniauth(request.env['omniauth.auth'])
+    user = User.signin_or_register(request.env['omniauth.auth'])
     redirect '/'
   end
 end

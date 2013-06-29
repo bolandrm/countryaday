@@ -4,7 +4,7 @@ require_relative '../app.rb'
 require 'rspec'
 require 'rack/test'
 require 'database_cleaner'
-require 'shoulda-matchers'
+require 'shoulda/matchers'
 
 DatabaseCleaner.strategy = :transaction
 
