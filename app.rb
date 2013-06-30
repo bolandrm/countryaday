@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
 require 'yaml'
@@ -13,7 +12,6 @@ class CountryADay < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
   configure :development, :test do
-    register Sinatra::Reloader
     set :cookie_domain, ''
     use Rack::Session::Cookie
   end

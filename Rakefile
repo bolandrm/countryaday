@@ -3,7 +3,7 @@ require './app'
 
 desc 'Start server on port 3000 with autoreload.'
 task :s do
-  sh 'bundle exec rackup -p 3000'
+  sh 'bundle exec shotgun config.ru -p 3000'
 end
 
 desc 'startup guard for livereload, less compile, test run, etc'

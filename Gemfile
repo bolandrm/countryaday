@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'pg'
 
@@ -17,6 +16,7 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'racksh'
+  gem 'shotgun'
 end
 
 group :development, :test do
