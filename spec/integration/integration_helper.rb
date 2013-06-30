@@ -12,13 +12,25 @@ RSpec.configure do |config|
 end
 
 
-def signup
-  signin
-  visit '/signout'
+def register
+  visit '/auth/facebook/callback'
+end
+
+def register_and_signout
+  register
+  signout
 end
 
 def signin
-  visit '/auth/facebook/callback'
+  register
+end
+
+def signout
+  visit 'signout'
+end
+
+def set_first_country_cookie(first_country)
+  Capybara.current_session.driver.browser.set_cookie "firstCountry=#{first_country}"
 end
 
 def passed_data(attribute)
