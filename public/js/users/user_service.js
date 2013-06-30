@@ -29,10 +29,21 @@ users.factory('User', ['$cookieStore', function($cookieStore) {
     }
   };
 
-  if (($cookieStore).get('firstCountry')) {
-    firstCountryCode = $cookieStore.get('firstCountry');
-    user.countries.setToday(firstCountryCode);
+  var body = angular.element('body');
+  if (body.attr('data-signed-in') === 'false') {
+    if (($cookieStore).get('firstCountry')) {
+      firstCountryCode = $cookieStore.get('firstCountry');
+      user.countries.setToday(firstCountryCode);
+    }
+  } else {
+    var learnedCountries = body.attr('data-countries').split(',');
+    for (var i = 0; i < learnedCountries.length; i++) {
+      user.countries.progress[learnedCountries[i]] = 'learned';
+    }
+
+    user.countries.setToday(body.attr('data-current-country'));
   }
+  
 
   return user;
 }]);
