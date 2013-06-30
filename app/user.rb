@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     user.name = auth.info ? (auth.info.nickname || auth.info.name) : nil
     user.email = auth.info.email if auth.info
     user.add_first_country(first_country) if user.new_record?
+    user.set_auth_token
 
     user.save!
     user
@@ -22,5 +23,11 @@ class User < ActiveRecord::Base
 
   def country_codes
     self.country_entries.map(&:code)
+  end
+
+  def set_auth_token
+    begin
+      self.auth_token = SecureRandom.urlsafe_base64
+    end while User.exists?(auth_token: self.auth_token)
   end
 end

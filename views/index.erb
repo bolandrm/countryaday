@@ -2,13 +2,16 @@
 <html lang="en" ng-app="countryaday">
   <head>
     <meta charset="utf-8">
-    <title>Country a Day</title>
+    <title><%= current_user %> Country a Day</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <link href="css/app.css" type="text/css" rel="stylesheet">
   </head>
-  <body data-current-country="<%= current_country %>">
+  <body
+    <%= "data-signed-in=\"#{signed_in}\"" %>
+    <%= "data-current-country=\"#{current_country}\"" if defined? current_country %>
+  >
     <div class="container">
       <div class="row title">
         <div class="span12">
