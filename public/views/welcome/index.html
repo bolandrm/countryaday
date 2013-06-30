@@ -24,17 +24,19 @@
 
 <div class="welcome-buttons" ng-controller="WelcomeController">
 
-  <a ng-show="!firstCountry" ng-click="learnFirstCountry()" class="btn btn-huge btn-block btn-success btn-first-country">Learn about your first country!</a>
+  <a ng-hide="firstCountry" ng-click="learnFirstCountry()" class="btn btn-huge btn-block btn-success btn-first-country">Learn about your first country!</a>
 
-  <a href="/auth/facebook" class="btn btn-small btn-social-facebook">
-    <i class="fui-facebook"></i> Sign in with Facebook
-  </a>
-  <a href="/auth/twitter" class="btn btn-small btn-social-twitter">
-    <i class="fui-twitter"></i> Sign in with Twitter
-  </a>
-  <a href="auth/google_oauth2" class="btn btn-small btn-social-googleplus">
-    <i class="fui-googleplus"></i> Sign in with Google
-  </a>
+  <div ng-hide="user.signedIn">
+    <a href="/auth/facebook" class="btn btn-small btn-social-facebook">
+      <i class="fui-facebook"></i> Sign in with Facebook
+    </a>
+    <a href="/auth/twitter" class="btn btn-small btn-social-twitter">
+      <i class="fui-twitter"></i> Sign in with Twitter
+    </a>
+    <a href="auth/google_oauth2" class="btn btn-small btn-social-googleplus">
+      <i class="fui-googleplus"></i> Sign in with Google
+    </a>
+  </div>
 </div>
 
 

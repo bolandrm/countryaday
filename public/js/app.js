@@ -35,9 +35,9 @@ app.config(['$routeProvider', function($routeProvider) {
     .otherwise({ redirectTo: '/welcome' });
 }]);
 
-app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
+app.run(['$rootScope', 'User', function($rootScope, User) {
   $rootScope.$on('$routeChangeStart', function(event, next, current) {
-    $rootScope.username = $cookies['username'];
+    $rootScope.user = User;
   });
 }]);
 

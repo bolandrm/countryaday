@@ -1,6 +1,8 @@
 users.factory('User', ['$cookieStore', function($cookieStore) {
   var user = {};
 
+  user.signedIn = angular.element('body').attr('data-signed-in');
+
   user.countries = {
     progress: {},
 
