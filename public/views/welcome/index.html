@@ -23,7 +23,9 @@
 </div>
 
 <div class="welcome-buttons" ng-controller="WelcomeController">
-  <a ng-click="learnFirstCountry()" class="btn btn-huge btn-block btn-success btn-first-country">Learn about your first country!</a>
+
+  <a ng-show="!firstCountry" ng-click="learnFirstCountry()" class="btn btn-huge btn-block btn-success btn-first-country">Learn about your first country!</a>
+
   <a href="/auth/facebook" class="btn btn-small btn-social-facebook">
     <i class="fui-facebook"></i> Sign in with Facebook
   </a>

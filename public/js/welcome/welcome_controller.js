@@ -2,6 +2,8 @@ welcome.controller('WelcomeController', [
   '$scope', '$location', '$cookieStore', 'User', 'Country',
   function ($scope, $location, $cookieStore, User, Country) {
     User.countries.setCurrent();
+
+    $scope.firstCountry = $cookieStore.get('firstCountry');
     
     $scope.learnFirstCountry = function() {
       var firstCountry = Country.randomCountry();
