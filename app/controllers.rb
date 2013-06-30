@@ -8,7 +8,7 @@ class CountryADay < Sinatra::Base
   end
 
   get '/' do
-    @locals[:current_country] = request.cookies['firstCountry']
+    @locals[:current_country] = @current_user.latest_country_code if @current_user
     erb :index, locals: @locals
   end
 
@@ -18,7 +18,7 @@ class CountryADay < Sinatra::Base
   end
 
   get '/auth/:name/callback' do
-    user = User.signin_or_register(request.env['omniauth.auth'])
+    user = User.signin_or_register(request.env['omniauth.auth'], request.cookies['firstCountry'])
     set_auth_cookie(user.auth_token)
     redirect '/'
   end

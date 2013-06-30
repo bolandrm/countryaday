@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     self.country_entries.map(&:code)
   end
 
+  def latest_country_code
+    self.country_entries.order('created_at DESC').first.code
+  end
+
   def set_auth_token
     begin
       self.auth_token = SecureRandom.urlsafe_base64

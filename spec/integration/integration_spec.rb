@@ -31,9 +31,27 @@ describe 'authentication' do
   end
 end
 
+describe 'countries' do
+  before { signin }
+
+  it 'passes lastest country to client' do
+    visit '/auth/facebook/callback'
+    latest_code = User.first.latest_country_code
+    expect(passed_data('current-country')).to eq(latest_code)
+  end
+
+  it 'shows a new country the next day' do
+
+  end
+end
+
 def signup
-  visit '/auth/facebook/callback'
+  signin
   visit '/signout'
+end
+
+def signin
+  visit '/auth/facebook/callback'
 end
 
 def passed_data(attribute)
