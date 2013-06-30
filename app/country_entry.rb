@@ -38,8 +38,26 @@ class CountryEntry < ActiveRecord::Base
                "ireland"=>"IE","indonesia"=>"ID","ukraine"=>"UA","qatar"=>"QA","mozambique"=>"MZ"}
 
   belongs_to :user
+  validates :code, uniqueness: { scope: :user_id }, presence: true
 
-  def self.random_country
+  def self.add_for_user(user_id, country_code = nil)
+    begin
+      country_code = country_code ? country_code.gsub('"', '') : random_country_code
+    end while !create(user_id: user_id, code: country_code)
+  end
+
+  def self.add_new_country_if_new_day(user_id)
+    latest_country = where(user_id: user_id).order('created_at DESC').first
+
+    day_of_last_country_entry = Time.at(latest_country.created_at).to_date
+    today = Time.now.to_date
+
+    add_for_user(user_id) unless day_of_last_country_entry === today
+  end
+
+private
+
+  def self.random_country_code
     COUNTRIES.to_a.sample[1]
   end
 end

@@ -4,13 +4,13 @@ require_relative 'country_entry.rb'
 class CountryADay < Sinatra::Base
   before do
     @current_user ||= User.find_by_auth_token(request.cookies['auth_token'])
+    @current_user.add_new_country_if_new_day if @current_user
+
     @locals = { signed_in: @current_user.present?, current_user: @current_user.try(:name) }
   end
 
   get '/' do
     if @current_user
-      @current_user.add_country_for_today
-        
       @locals[:current_country] = @current_user.latest_country_code
       @locals[:countries] = @current_user.country_codes.join(',')
     end

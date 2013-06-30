@@ -42,7 +42,8 @@ describe User do
         expect(user.country_codes).to include('US')
       end
 
-      it 'adds country entry if first country passed in' do
+      # this needs work, it can fail if you're "lucky"
+      it 'assigns random first countries' do
         user2 = User.signin_or_register(OmniAuth.config.mock_auth[:facebook])
         expect(user.country_codes.first).to_not eq(user2.country_codes.first)
       end

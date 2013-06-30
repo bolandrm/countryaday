@@ -5,37 +5,21 @@ class User < ActiveRecord::Base
   validates :uid, presence: true
 
   def self.signin_or_register(auth, first_country = nil)
-    user = where(auth.slice(:provider, :uid)).first_or_initialize
+    user = where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.name = auth.info ? (auth.info.nickname || auth.info.name) : nil
+      user.email = auth.info.email if auth.info
+      user.set_auth_token
+    end
 
-    user.name = auth.info ? (auth.info.nickname || auth.info.name) : nil
-    user.email = auth.info.email if auth.info
-    user.add_first_country(first_country) if user.new_record?
-    user.set_auth_token
+    if user.country_entries.count == 0
+      CountryEntry.add_for_user(user.id, first_country)
+    end
 
-    user.save!
     user
   end
 
-  def add_country_for_today
-    day_of_last_country_entry = Time.at(latest_country_entry.created_at).to_date
-    today = Time.now.to_date
-
-    unless day_of_last_country_entry === today
-      begin
-        code = CountryEntry.random_country
-      end while country_codes.include?(code)
-
-      self.country_entries.create(code: code)
-    end
-  end
-
-  def add_first_country(first_country = nil)
-    # if the user has opted to get a 'preview' by asking for a first country,
-    # we will get that info from this cookie.  Clean it up if that's the case
-    first_country.gsub!('"', '') if first_country
-
-    code = first_country ? first_country : CountryEntry.random_country
-    self.country_entries.build(code: code)
+  def add_new_country_if_new_day
+    CountryEntry.add_new_country_if_new_day(self.id)
   end
 
   def country_codes

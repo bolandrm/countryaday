@@ -5,6 +5,7 @@ require 'rspec'
 require 'rack/test'
 require 'database_cleaner'
 require 'shoulda/matchers'
+require 'timecop'
 
 DatabaseCleaner.strategy = :transaction
 

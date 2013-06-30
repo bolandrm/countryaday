@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'capybara'
-require 'timecop'
 
 Capybara.app = app
 
