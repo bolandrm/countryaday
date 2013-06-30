@@ -8,7 +8,13 @@ class CountryADay < Sinatra::Base
   end
 
   get '/' do
-    @locals[:current_country] = @current_user.latest_country_code if @current_user
+    if @current_user
+      @current_user.add_country_for_today
+        
+      @locals[:current_country] = @current_user.latest_country_code
+      @locals[:countries] = @current_user.country_codes.join(',')
+    end
+
     erb :index, locals: @locals
   end
 

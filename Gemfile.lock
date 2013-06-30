@@ -144,6 +144,7 @@ GEM
       libv8 (~> 3.3.10)
     thor (0.18.1)
     tilt (1.4.1)
+    timecop (0.6.1)
     tzinfo (0.3.37)
     websocket (1.0.7)
     xpath (1.0.0)
@@ -171,3 +172,4 @@ DEPENDENCIES
   shoulda-matchers
   sinatra
   sinatra-activerecord
+  timecop

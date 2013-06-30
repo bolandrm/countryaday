@@ -10,7 +10,12 @@
   </head>
   <body
     <%= "data-signed-in=\"#{signed_in}\"" %>
-    <%= "data-current-country=\"#{current_country}\"" if defined? current_country %>
+    <% if defined? current_country %>
+      data-current-country="<%= current_country %>"
+    <% end %>
+    <% if defined? countries %>
+      data-countries="<%= countries %>"
+    <% end %>
   >
     <div class="container">
       <div class="row title">
