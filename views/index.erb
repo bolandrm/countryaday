@@ -2,7 +2,7 @@
 <html lang="en" ng-app="countryaday">
   <head>
     <meta charset="utf-8">
-    <title><%= current_user %> Country a Day</title>
+    <title>Country a Day</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -19,10 +19,16 @@
   >
     <div class="container">
       <div class="row title">
-        <div class="span12">
+        <div class="span10">
           <h1><a href="#/welcome">Country a Day</a></h1>
           Learn about a new country every day!
-          Hi {{username}}
+        </div>
+        <div class="span2">
+          <% if signed_in %>
+            <a href="/signout" class="btn btn-mini btn-acad-nav">
+              <i class="fui-exit"></i>Sign out
+            </a>
+          <% end %>
         </div>
       </div>
       <div class="row">
