@@ -35,7 +35,7 @@ users.factory('User', ['$cookieStore', function($cookieStore) {
       firstCountryCode = $cookieStore.get('firstCountry');
       user.countries.setToday(firstCountryCode);
     }
-  } else {
+  } else if (body.attr('data-countries') != null) {
     var learnedCountries = body.attr('data-countries').split(',');
     for (var i = 0; i < learnedCountries.length; i++) {
       user.countries.progress[learnedCountries[i]] = 'learned';

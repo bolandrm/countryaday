@@ -5,6 +5,7 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
+  '../../public/vendor/flat/js/jquery-1.8.3.min.js',
   '../../public/vendor/angular/angular.min.js',
   '../../public/vendor/angular/angular-*.js',
   '../../public/js/app.js',
