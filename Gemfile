@@ -12,7 +12,6 @@ gem 'omniauth-google-oauth2'
 group :development do
   gem 'guard'
   gem 'guard-shell'
-  gem 'guard-less'
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'racksh'

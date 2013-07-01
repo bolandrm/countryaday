@@ -1,7 +1,3 @@
-guard 'less', output: 'public/css' do
-  watch(%r{^public/css/less/.+\.less$})
-end
-
 guard 'livereload' do
   watch(%r{public/.+\.(css|js|html)})
 end
@@ -28,5 +24,6 @@ run_karma
 guard 'shell' do
   watch(%r{spec/js/*}) { run_karma }
   watch(%r{public/js/*}) { run_karma }
+  #watch(%r{public/css/*}) { system('lessn public/css/less/app.less public/css/app.css') }
 end
 

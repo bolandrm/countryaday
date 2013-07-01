@@ -16,6 +16,11 @@ task :c do
   sh 'racksh'
 end
 
+desc 'compile less'
+task :less do
+  sh '/usr/local/share/npm/bin/lessc public/css/less/app.less public/css/app.css'
+end
+
 task :default do
   puts `rake -T`
 end
