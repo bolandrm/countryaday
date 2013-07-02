@@ -1,0 +1,27 @@
+<h2 class="country centered">My Countries</h2>
+
+<div class="row">
+  <div class="span6 offset3 country-progress-bar">
+    <div class="progress">
+      <div class="countries-learned-bar bar" style="width: {{percent}}%;"></div>
+    </div>
+    {{countriesLearned.length}} of {{totalCountries}} Countries Learned
+  </div>
+</div>
+
+<div class="row">
+  <div class="span8 offset2">
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th class="centered">Country</th>
+          <th class="centered">Learned On</th>
+        </tr>
+        <tr ng-repeat="country in countriesLearned">
+          <td class="centered">{{country}}</td>
+          <td class="centered">7/1/13</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -9,6 +9,10 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/welcome/index.html',
       controller: 'WelcomeController'
     })
+    .when('/my-countries', {
+      templateUrl: 'views/mycountries/index.html',
+      controller: 'MyCountriesController'
+    })
     .when('/country/:country', {
       templateUrl: 'views/countries/show.html',
       controller: 'CountriesController',

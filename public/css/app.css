@@ -12849,6 +12849,7 @@ html {
   color: #ffffff;
 }
 .title .btn-acad-nav {
+  margin-left: 10px;
   margin-top: 32px;
   background-color: #FFFFFF;
   color: #3498DB;
@@ -12867,6 +12868,27 @@ html {
 .map path {
   cursor: hand;
   cursor: pointer;
+}
+.centered,
+table th.centered,
+table td.centered {
+  text-align: center;
+}
+.country-progress-bar {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.country-progress-bar .progress {
+  margin-bottom: 3px;
+}
+.country-progress-bar .countries-learned-bar {
+  -webkit-border-top-left-radius: 32px;
+  -webkit-border-bottom-left-radius: 32px;
+  -moz-border-radius-topleft: 32px;
+  -moz-border-radius-bottomleft: 32px;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
 }
 .main {
   background-color: #FFFFFF;
@@ -12893,7 +12915,7 @@ html {
 .tile {
   margin: 0 20px 0 20px;
   padding: 10px 0 10px 0;
-  background-color: #ECF0F5;
+  background-color: #CCCCCC;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;

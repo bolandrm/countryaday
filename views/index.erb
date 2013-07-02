@@ -19,14 +19,17 @@
   >
     <div class="container">
       <div class="row title">
-        <div class="span10">
+        <div class="span8">
           <h1><a href="#/welcome">Country a Day</a></h1>
           Learn about a new country every day!
         </div>
-        <div class="span2">
+        <div class="span4">
           <% if signed_in %>
             <a href="/signout" class="btn btn-mini btn-acad-nav">
               <i class="fui-exit"></i>Sign out
+            </a>
+            <a href="#/my-countries" class="btn btn-mini btn-acad-nav">
+              <i class="fui-book"></i>My Countries
             </a>
           <% end %>
         </div>
@@ -69,6 +72,7 @@
 
       <script src="js/countries/country.js"></script>
       <script src="js/countries/countries_controller.js"></script>
+      <script src="js/countries/my_countries_controller.js"></script>
       <script src="js/countries/services/wikipedia_service.js"></script>
       <script src="js/countries/services/geonames_service.js"></script>
       <script src="js/countries/services/feedzilla_service.js"></script>

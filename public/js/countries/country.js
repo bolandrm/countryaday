@@ -7,6 +7,10 @@ countries.factory('Country', function() {
   }
 
   return {
+    totalCountries: function() {
+      return Object.keys(countriesToCodes).length;
+    },
+
     fromCode: function(code) {
       var name = codesToCountries[code];
       return (name === undefined) ? null : { name: name, code: code };

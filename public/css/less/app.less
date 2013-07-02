@@ -12,6 +12,7 @@ body, html {
   h1 { font-size: 30px; margin-bottom: 0px; }
   h1 a { color: #FFFFFF }
   .btn-acad-nav {
+    margin-left: 10px;
     margin-top: 32px;
     background-color: #FFFFFF;
     color: #3498DB;
@@ -28,6 +29,26 @@ body, html {
   padding: 4px;
   height: 300px;
   path { cursor: hand; cursor: pointer }
+}
+
+.centered, table th.centered, table td.centered {
+  text-align: center;
+}
+
+.country-progress-bar {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  .progress { margin-bottom: 3px; }
+  .countries-learned-bar {
+    -webkit-border-top-left-radius: 32px;
+    -webkit-border-bottom-left-radius: 32px;
+    -moz-border-radius-topleft: 32px;
+    -moz-border-radius-bottomleft: 32px;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+  }
 }
 
 .main {
@@ -58,7 +79,7 @@ body, html {
 .tile {
   margin: 0 20px 0 20px;
   padding: 10px 0 10px 0;
-  background-color: #ECF0F5;
+  background-color: #CCCCCC;
   .border-radius(6px);
   h3.tile-title { 
     font-size: 20px; 
