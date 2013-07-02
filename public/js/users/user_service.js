@@ -1,4 +1,4 @@
-users.factory('User', ['$cookieStore', function($cookieStore) {
+users.factory('User', ['$cookieStore', 'Country', function($cookieStore, Country) {
   var import_user_data = function() {
     var body = angular.element('body');
     if (body.attr('data-signed-in') === 'false') {
@@ -21,6 +21,7 @@ users.factory('User', ['$cookieStore', function($cookieStore) {
 
   user.countries = {
     progress: {},
+    today: '',
 
     setToday: function(todaysCode) {
       for (var code in this.progress) {
@@ -30,6 +31,7 @@ users.factory('User', ['$cookieStore', function($cookieStore) {
         }
       }
       this.progress[todaysCode] = 'today';
+      this.today = Country.fromCode(todaysCode).name;
     },
 
     setCurrent: function(currentCode) {

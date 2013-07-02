@@ -1,6 +1,5 @@
 countries.controller('MyCountriesController', [
-  '$scope', '$http', 'User', 'Country',
-  function($scope, $http, User, Country) {
+  '$scope', '$http', 'User', 'Country', function($scope, $http, User, Country) {
     $scope.totalCountries = Country.totalCountries();
     $scope.totalLearned = User.countries.numLearned();
     $scope.percent = Math.round($scope.totalLearned/$scope.totalCountries*100);
