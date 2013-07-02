@@ -1,14 +1,3 @@
 .DS_Store
 
 /server/config/application.yml
-
-/public/vendor/flat/css
-/public/vendor/flat/fonts
-/public/vendor/flat/images
-/public/vendor/flat/mixins.less
-/public/vendor/flat/social-icons-font.less
-/public/vendor/flat/flat-ui.less
-/public/vendor/flat/icon-font.less
-/public/vendor/flat/js
-/public/vendor/flat/modules
-/public/vendor/flat/spaces.less

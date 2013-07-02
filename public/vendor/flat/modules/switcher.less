@@ -1,0 +1,90 @@
+/* ============================================================
+ * bootstrapSwitch v1.3 by Larentis Mattia @spiritualGuru
+ * http://www.larentis.eu/switch/
+ * ============================================================
+ * Licensed under the Apache License, Version 2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * ============================================================ */
+
+.has-switch {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid;
+  border-color: fade(@base, 10%) fade(@base, 10%) rgba(@base, .25);
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  min-width: 100px;
+  .user-select(none);
+
+  &.deactivate {
+    .opacity(50);
+    cursor: default !important;
+    label, span {
+      cursor: default !important;
+    }
+  }
+
+  > div {
+    display: inline-block;
+    width: 150%;
+    position: relative;
+    top: 0;
+
+    &.switch-animate {
+      .transition(left 0.5s);
+    }
+
+    &.switch-off {
+      left: -50%;
+
+      [class*="fui-"] {
+        text-indent: -3px;
+      }
+    }
+
+    &.switch-on {
+      left: 0%;
+    }
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  span, label {
+    cursor: pointer;
+    font-size: @base-font-size;
+    display: inline-block;
+    height: 100%;
+    line-height: @base-line-height;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    position: relative;
+    .box-sizing;
+  }
+
+  label {
+    border-left: 1px solid @btnBorder;
+    border-right: 1px solid @btnBorder;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    z-index: 100;
+    text-align: center;
+    width: 34%;
+
+    i {
+      color: @base;
+      line-height: @base-line-height;
+      pointer-events: none;
+    }
+  }
+
+  span {
+    text-align: center;
+    z-index: 1;
+    width: 33%;
+  }
+}
