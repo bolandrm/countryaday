@@ -21,6 +21,18 @@ describe 'countries' do
     expect(passed_data('countries')).to eq("#{first_code},RU,AU,LY")
   end
 
+  it 'provides json list of countries' do
+    user = User.first
+    user.country_entries.create(code: 'AU')
+    user.country_entries.create(code: 'LY')
+
+    visit '/my-countries.json'
+    expect(page).to have_content('AU')
+    expect(page).to have_content('LY')
+    expect(page).to have_content(Date.today.strftime('%m / %d / %Y'))
+    expect(JSON.parse(page.source).count).to eq(3) # the first country is created before our two
+  end
+
   it 'does not show a new country the same day' do
     first_country = passed_data('current-country')
     visit '/'
@@ -35,4 +47,3 @@ describe 'countries' do
     end
   end
 end
-

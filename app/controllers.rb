@@ -17,6 +17,14 @@ class CountryADay < Sinatra::Base
     erb :index, locals: @locals
   end
 
+  get '/my-countries.json' do
+    redirect '/' unless @current_user
+    @current_user.add_new_country_if_new_day
+    @current_user.country_entries.order('created_at DESC').map do |e|
+      [e.code, e.created_at.strftime('%m / %d / %Y')]
+    end.to_json
+  end
+
   get '/signout' do
     set_auth_cookie(nil)
     redirect '/'
