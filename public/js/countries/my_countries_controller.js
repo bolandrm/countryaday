@@ -1,14 +1,15 @@
 countries.controller('MyCountriesController', [
-  '$rootScope', '$scope', '$routeParams', 'User', 'Country',
-  function($rootScope, $scope, $routeParams, User, Country) {
+  '$scope', '$http', 'User', 'Country',
+  function($scope, $http, User, Country) {
     $scope.totalCountries = Country.totalCountries();
-  
-    var progress = User.countries.progress;
-    $scope.countriesLearned = [];
-    for (var index in progress) {
-      $scope.countriesLearned.push(index);
-    }
+    $scope.totalLearned = User.countries.numLearned();
+    $scope.percent = Math.round($scope.totalLearned/$scope.totalCountries*100);
 
-    $scope.percent = Math.round($scope.countriesLearned.length/$scope.totalCountries*100);
+    $http({method: 'GET', cache: true, url: '/my-countries.json'}).success(function(data) {
+      for (var i = 0; i < data.length; i++) {
+        data[i].name = Country.fromCode(data[i].code).name;
+      }
+      $scope.countriesLearned = data;
+    });
   }
 ]);

@@ -21,7 +21,7 @@ class CountryADay < Sinatra::Base
     redirect '/' unless @current_user
     @current_user.add_new_country_if_new_day
     @current_user.country_entries.order('created_at DESC').map do |e|
-      [e.code, e.created_at.strftime('%m / %d / %Y')]
+      { code: e.code, date: e.created_at.strftime('%m / %d / %Y') }
     end.to_json
   end
 

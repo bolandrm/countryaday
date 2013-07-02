@@ -5,7 +5,7 @@
     <div class="progress">
       <div class="countries-learned-bar bar" style="width: {{percent}}%;"></div>
     </div>
-    {{countriesLearned.length}} of {{totalCountries}} Countries Learned
+    {{totalLearned}} of {{totalCountries}} Countries Learned
   </div>
 </div>
 
@@ -17,9 +17,14 @@
           <th class="centered">Country</th>
           <th class="centered">Learned On</th>
         </tr>
+        <tr ng-hide="countriesLearned"><td colspan="2">
+            <a href="#" class="btn btn-large btn-block disabled">Loading...</a>
+        </td></tr>
         <tr ng-repeat="country in countriesLearned">
-          <td class="centered">{{country}}</td>
-          <td class="centered">7/1/13</td>
+          <td class="centered">
+            <a ng-href="/#/country/{{country.name}}">{{country.name | titleize}}</a>
+          </td>
+          <td class="centered">{{country.date}}</td>
         </tr>
       </tbody>
     </table>
