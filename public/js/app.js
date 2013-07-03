@@ -6,15 +6,15 @@ var app = angular.module('countryaday', ['ngCookies', 'welcome', 'countries', 'u
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/welcome', {
-      templateUrl: 'views/welcome/index.html',
+      templateUrl: 'js/views/welcome.html',
       controller: 'WelcomeController'
     })
     .when('/my-countries', {
-      templateUrl: 'views/mycountries/index.html',
+      templateUrl: 'js/views/my-countries.html',
       controller: 'MyCountriesController'
     })
     .when('/country/:country', {
-      templateUrl: 'views/countries/show.html',
+      templateUrl: 'js/views/country.html',
       controller: 'CountriesController',
       resolve: {
         checkCountry: ['$route', '$location', 'Country',
