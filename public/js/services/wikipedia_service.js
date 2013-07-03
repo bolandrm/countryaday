@@ -1,4 +1,4 @@
-countries.factory('Wikipedia', ['$http', '$q', function($http, $q) {
+app.factory('Wikipedia', ['$http', '$q', function($http, $q) {
   var cache = {};
 
   var extractParagraphs = function(data) {

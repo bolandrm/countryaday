@@ -1,4 +1,4 @@
-countries.controller('MyCountriesController', [
+app.controller('MyCountriesController', [
   '$scope', '$http', 'User', 'Country', function($scope, $http, User, Country) {
     $scope.totalCountries = Country.totalCountries();
     $scope.totalLearned = User.countries.numLearned();

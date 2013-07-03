@@ -1,4 +1,4 @@
-welcome.controller('WelcomeController', [
+app.controller('WelcomeController', [
   '$scope', '$location', '$cookieStore', 'User', 'Country',
   function ($scope, $location, $cookieStore, User, Country) {
     User.countries.setCurrent();

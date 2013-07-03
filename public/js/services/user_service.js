@@ -1,4 +1,4 @@
-users.factory('User', ['$cookieStore', 'Country', function($cookieStore, Country) {
+app.factory('User', ['$cookieStore', 'Country', function($cookieStore, Country) {
   var import_user_data = function() {
     var body = angular.element('body');
     if (body.attr('data-signed-in') === 'false') {

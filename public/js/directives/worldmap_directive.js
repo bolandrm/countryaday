@@ -1,4 +1,4 @@
-countries.directive('worldmap', [
+app.directive('worldmap', [
   '$location', 'Country', 'User', function($location, Country, User) {
     return {
       scope: {},

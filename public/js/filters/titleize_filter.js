@@ -1,4 +1,4 @@
-countries.filter('titleize', function() {
+app.filter('titleize', function() {
   return function(text) {
     if (!text) { return ''; }
     return text.replace(/_/g, ' ').replace(/\w\S*/g, function(txt) {

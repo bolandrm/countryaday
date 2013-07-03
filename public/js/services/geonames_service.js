@@ -1,4 +1,4 @@
-countries.factory('GeoNames', ['$http', '$q', function($http, $q) {
+app.factory('GeoNames', ['$http', '$q', function($http, $q) {
   var API_USERNAME = 'countryaday';
   var cache = {};
 

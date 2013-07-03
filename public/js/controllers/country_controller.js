@@ -1,4 +1,4 @@
-countries.controller('CountriesController', [
+app.controller('CountryController', [
   '$rootScope', '$scope', '$routeParams', 'User', 'Country', 'summary', 'info', 'news',
   function($rootScope, $scope, $routeParams, User, Country, summary, info, news) {
     $scope.country = $routeParams.country;

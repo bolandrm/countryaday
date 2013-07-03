@@ -1,4 +1,4 @@
-countries.factory('Feedzilla', ['$http', '$q', function($http, $q) {
+app.factory('Feedzilla', ['$http', '$q', function($http, $q) {
   var cache = {}
 
   return {
