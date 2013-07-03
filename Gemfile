@@ -16,6 +16,7 @@ group :development do
   gem 'guard-rspec'
   gem 'racksh'
   gem 'shotgun'
+  gem 'uglifier'
 end
 
 group :development, :test do
