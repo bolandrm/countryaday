@@ -11,6 +11,10 @@ class CountryADay < Sinatra::Base
   ENV.update YAML.load(File.read(File.expand_path('../config/application.yml', __FILE__)))
   register Sinatra::ActiveRecordExtension
 
+  configure do
+    set :views, Proc.new { File.join(root, 'app/views') }
+  end
+
   configure :development, :test do
     set :cookie_domain, ''
     use Rack::Session::Cookie
@@ -26,5 +30,5 @@ class CountryADay < Sinatra::Base
     provider :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET']
   end
 
-  require_relative 'app/controllers.rb'
+  require_relative 'app/countryaday.rb'
 end

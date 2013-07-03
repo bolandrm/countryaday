@@ -1,5 +1,5 @@
-require_relative 'user.rb'
-require_relative 'country_entry.rb'
+require_relative 'models/user.rb'
+require_relative 'models/country_entry.rb'
 
 class CountryADay < Sinatra::Base
   before do
