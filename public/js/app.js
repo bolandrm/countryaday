@@ -37,11 +37,13 @@ app.run(['$rootScope', '$location', 'Country', 'User',
     $rootScope.user = User;
 
     $rootScope.$on('$routeChangeStart', function(event, current, previous) {
-      if (current.$$route.controller === 'CountryController') {
+      if (current.$$route && current.$$route.controller === 'CountryController') {
         var country = Country.fromName(current.params.country);
         if (country === null) { $location.path('/'); }
         User.countries.setCurrent(country.code);
         $rootScope.loading = { country: current.params.country };
+      } else if (current.$$route && current.$$route.templateUrl === 'js/views/signin.html') {
+        if (User.signedIn) { $location.path('/'); }
       }
     });
 

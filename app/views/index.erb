@@ -20,21 +20,22 @@
     <div class="container">
       <div class="row title">
         <div class="span4">
-          <h1><a href="#/welcome">Country a Day</a></h1>
+          <h1><a href="#/">Country a Day</a></h1>
           Learn about a new country every day!
         </div>
         <div class="span8">
-          <% if signed_in %>
-            <a href="/signout" class="btn btn-mini btn-acad-nav">
-              <i class="fui-exit"></i>Sign out
-            </a>
-            <a href="#/my-countries" class="btn btn-mini btn-acad-nav">
-              <i class="fui-book"></i>My Countries
-            </a>
-            <a href="#/country/{{user.countries.today}}" class="btn btn-mini btn-acad-nav">
-              <i class="fui-location"></i>Learn about {{user.countries.today | titleize}}
-            </a>
-          <% end %>
+          <a ng-show="user.signedIn" href="/signout" class="btn btn-mini btn-acad-nav">
+            <i class="fui-exit"></i>Sign out
+          </a>
+          <a ng-show="user.signedIn" href="#/my-countries" class="btn btn-mini btn-acad-nav">
+            <i class="fui-book"></i>My Countries
+          </a>
+          <a ng-hide="user.signedIn" href="#/welcome" class="btn btn-mini btn-acad-nav">
+            <i class="fui-user"></i>Sign in or Register
+          </a>
+          <a ng-show="user.countries.today" href="#/country/{{user.countries.today}}" class="btn btn-mini btn-acad-nav">
+            <i class="fui-location"></i>Learn about {{user.countries.today | titleize}}
+          </a>
         </div>
       </div>
       <div class="row">
@@ -73,7 +74,7 @@
       </div> <!-- /row -->
     <div class="row">
       <div class="span12 footer">
-        Created by <u>Ryan Boland</u> with the help of <u>various libraries</u>. &nbsp;
+        Created by <u>Ryan Boland</u> with the help of <u>various libraries and services</u>. &nbsp;
         Source available on <u>Github</u>.
       </div>
     </div>

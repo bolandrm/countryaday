@@ -12931,6 +12931,9 @@ table td.centered {
   padding: 0 20px 0 20px;
   text-align: center;
 }
+.welcome-buttons h3 {
+  margin-top: 20px;
+}
 .btn-first-country {
   margin-bottom: 10px;
 }
