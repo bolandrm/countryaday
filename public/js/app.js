@@ -17,13 +17,6 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'js/views/country.html',
       controller: 'CountryController',
       resolve: {
-        checkCountry: ['$route', '$location', 'Country',
-          function($route, $location, Country) {
-            if (Country.fromName($route.current.params.country) === null) {
-              $location.path('/welcome');
-            }
-          }
-        ],
         summary: ['$route', 'Wikipedia', function($route, Wikipedia) {
           return Wikipedia.getSummary($route.current.params.country);
         }],
@@ -39,8 +32,21 @@ app.config(['$routeProvider', function($routeProvider) {
     .otherwise({ redirectTo: '/welcome' });
 }]);
 
-app.run(['$rootScope', 'User', function($rootScope, User) {
-  $rootScope.$on('$routeChangeStart', function(event, next, current) {
+app.run(['$rootScope', '$location', 'Country', 'User', 
+  function($rootScope, $location, Country, User) {
     $rootScope.user = User;
-  });
-}]);
+
+    $rootScope.$on('$routeChangeStart', function(event, current, previous) {
+      if (current.$$route.controller === 'CountryController') {
+        var country = Country.fromName(current.params.country);
+        if (country === null) { $location.path('/'); }
+        User.countries.setCurrent(country.code);
+        $rootScope.loading = { country: current.params.country };
+      }
+    });
+
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+      $rootScope.loading = false;
+    });
+  }
+]);

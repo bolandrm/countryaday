@@ -45,7 +45,29 @@
       <div class="row">
         <div class="span12">
           <div class="main">
-            <div ng-view></div>
+            <div class="loading-services" ng-show="loading.country">
+              <div class="row">
+                <div class="offset3 span6">
+                  <h2>{{loading.country | titleize}}<h2>
+                </div>
+                <div ng-class="{'service-loaded': loading.wikipediaComplete}" class="service-logo offset3 span2">
+                  <img src="images/wikipedia-logo.png" /><br />
+                  Wikipedia
+                </div>
+                <div ng-class="{'service-loaded': loading.feedzillaComplete}" class="service-logo span2">
+                  <img src="images/feedzilla-logo.png" /><br />
+                  Feedzilla
+                </div>
+                <div ng-class="{'service-loaded': loading.geonamesComplete}" class="service-logo span2">
+                  <img src="images/geonames-logo.png" /><br />
+                  Geonames
+                </div>
+                <div class="offset3 span6">
+                  <h2>Gathering Information<h2>
+                </div>
+              </div>
+            </div>
+            <div ng-hide="loading.country" ng-view></div>
           </div>
         </div>
       </div> <!-- /row -->

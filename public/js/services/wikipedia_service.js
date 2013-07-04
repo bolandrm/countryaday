@@ -1,4 +1,4 @@
-app.factory('Wikipedia', ['$http', '$q', function($http, $q) {
+app.factory('Wikipedia', ['$rootScope', '$http', '$q', function($rootScope, $http, $q) {
   var cache = {};
 
   var extractParagraphs = function(data) {
@@ -55,6 +55,7 @@ app.factory('Wikipedia', ['$http', '$q', function($http, $q) {
           var paragraphs = extractParagraphs(data);
 
           cache[country] = paragraphs;
+          $rootScope.loading.wikipediaComplete = true;
           summary.resolve(paragraphs);
         });
 

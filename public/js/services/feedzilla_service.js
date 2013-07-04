@@ -1,4 +1,4 @@
-app.factory('Feedzilla', ['$http', '$q', function($http, $q) {
+app.factory('Feedzilla', ['$rootScope', '$http', '$q', function($rootScope, $http, $q) {
   var cache = {}
 
   return {
@@ -12,6 +12,7 @@ app.factory('Feedzilla', ['$http', '$q', function($http, $q) {
 
         $http.jsonp(url).success(function(data) {
           cache[country] = data.articles;
+          $rootScope.loading.feedzillaComplete = true;
           news.resolve(data.articles);
         });
 

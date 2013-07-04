@@ -1,4 +1,4 @@
-app.factory('GeoNames', ['$http', '$q', function($http, $q) {
+app.factory('GeoNames', ['$rootScope', '$http', '$q', function($rootScope, $http, $q) {
   var API_USERNAME = 'countryaday';
   var cache = {};
 
@@ -14,6 +14,7 @@ app.factory('GeoNames', ['$http', '$q', function($http, $q) {
         $http.jsonp(url).success(function(data) {
           var data = data.geonames[0];
           cache[countryCode] = data;
+          $rootScope.loading.geonamesComplete = true;
           info.resolve(data);
         });
 

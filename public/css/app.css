@@ -12857,6 +12857,27 @@ html {
   float: right;
   font-weight: bold;
 }
+.loading-services {
+  margin-bottom: 20px;
+}
+.loading-services h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+.loading-services .service-logo {
+  border: 5px solid #EEEEEE;
+  text-align: center;
+  font-weight: bold;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  padding: 10px 0 10px 0;
+}
+.loading-services .service-loaded {
+  border: 5px solid #27AE60;
+}
 .map {
   background-color: #FFFFFF;
   margin-top: 10px;
