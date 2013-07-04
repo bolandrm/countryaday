@@ -5,6 +5,17 @@ var app = angular.module('countryaday', ['ngCookies']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
+    .when('/', {
+      resolve: {
+        routing: ['$route', '$location', 'User', function($route, $location, User) {
+          if (User.countries.today) {
+            $location.path('/country/' + User.countries.today);
+          } else {
+            $location.path('/welcome');
+          }
+        }]
+      }
+    })
     .when('/welcome', {
       templateUrl: 'js/views/welcome.html',
       controller: 'WelcomeController'
@@ -17,6 +28,17 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'js/views/country.html',
       controller: 'CountryController',
       resolve: {
+        routing: ['$rootScope', '$route', '$location', 'User', 'Country',
+          function($rootScope, $route, $location, User, Country) {
+            var country = Country.fromName($route.current.params.country);
+            if (country === null) { 
+              $location.path('/');
+            } else {
+              User.countries.setCurrent(country.code);
+              $rootScope.loading = { country: $route.current.params.country };
+            }
+          }
+        ],
         summary: ['$route', 'Wikipedia', function($route, Wikipedia) {
           return Wikipedia.getSummary($route.current.params.country);
         }],
@@ -29,24 +51,14 @@ app.config(['$routeProvider', function($routeProvider) {
         }]
       }
     })
-    .otherwise({ redirectTo: '/welcome' });
+    .otherwise({ redirectTo: '/' });
 }]);
 
 app.run(['$rootScope', '$location', 'Country', 'User', 
   function($rootScope, $location, Country, User) {
     $rootScope.user = User;
 
-    $rootScope.$on('$routeChangeStart', function(event, current, previous) {
-      if (current.$$route && current.$$route.controller === 'CountryController') {
-        var country = Country.fromName(current.params.country);
-        if (country === null) { $location.path('/'); }
-        User.countries.setCurrent(country.code);
-        $rootScope.loading = { country: current.params.country };
-      } else if (current.$$route && current.$$route.templateUrl === 'js/views/signin.html') {
-        if (User.signedIn) { $location.path('/'); }
-      }
-    });
-
+    $rootScope.$on('$routeChangeStart', function(event, current, previous) { });
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
       $rootScope.loading = false;
     });

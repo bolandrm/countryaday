@@ -3,7 +3,7 @@ app.controller('WelcomeController', [
   function ($scope, $location, $cookieStore, User, Country) {
     User.countries.setCurrent();
 
-    $scope.firstCountry = Object.keys(User.countries.progress).length
+    $scope.firstCountry = User.countries.today;
     
     $scope.learnFirstCountry = function() {
       var firstCountry = Country.randomCountry();

@@ -2,7 +2,7 @@ app.factory('User', ['$cookieStore', 'Country', function($cookieStore, Country) 
   var import_user_data = function() {
     var body = angular.element('body');
 
-    if (body.attr('data-signed-in') === 'false' && ($cookieStore).get('firstCountry')) {
+    if (body.attr('data-signed-in') === 'false' && $cookieStore.get('firstCountry')) {
       firstCountryCode = $cookieStore.get('firstCountry');
       user.countries.setToday(firstCountryCode);
     } else if (body.attr('data-countries') != null) {
@@ -11,6 +11,7 @@ app.factory('User', ['$cookieStore', 'Country', function($cookieStore, Country) 
         user.countries.progress[learnedCountries[i]] = 'learned';
       }
       user.countries.setToday(body.attr('data-current-country'));
+      $cookieStore.remove('firstCountry');
     }
   };
 
