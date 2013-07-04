@@ -36,6 +36,10 @@ class CountryADay < Sinatra::Base
     redirect '/'
   end
 
+  get '/*' do
+    redirect '/'
+  end
+
   def set_auth_cookie(value)
     response.set_cookie :auth_token, value: value,
                                      domain: settings.cookie_domain,
