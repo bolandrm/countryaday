@@ -16,6 +16,9 @@
     <% if defined? countries %>
       data-countries="<%= countries %>"
     <% end %>
+    <% if defined? flash %>
+      data-flash="<%= flash %>"
+    <% end %>
   >
     <div class="container">
       <div class="row title">
@@ -67,6 +70,10 @@
                   <h2>Gathering Information<h2>
                 </div>
               </div>
+            </div>
+            <div class="alert alert-success" ng-show="flash" style="margin: 0 20px 10px 20px">
+              <button type="button" class="close fui-cross" ng-click="closeFlash()"></button>
+              {{flash}}
             </div>
             <div ng-hide="loading.country" ng-view></div>
           </div>

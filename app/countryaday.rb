@@ -1,5 +1,6 @@
 require_relative 'models/user.rb'
 require_relative 'models/country_entry.rb'
+require_relative 'helpers/cookies.rb'
 
 class CountryADay < Sinatra::Base
   before do
@@ -8,8 +9,12 @@ class CountryADay < Sinatra::Base
   end
 
   get '/' do
+    @locals[:flash] = get_and_clear_flash_message
+
     if @current_user
-      @current_user.add_new_country_if_new_day
+      if @current_user.add_new_country_if_new_day
+        @locals[:flash] += ' Your country for today is __todaysCountry__!'
+      end
       @locals[:current_country] = @current_user.latest_country_code
       @locals[:countries] = @current_user.country_codes.join(',')
     end
@@ -28,24 +33,18 @@ class CountryADay < Sinatra::Base
   get '/signout' do
     set_auth_cookie(nil)
     @current_user = nil
+    set_flash_cookie('Thanks for visiting. You are now signed out.')
     redirect '/'
   end
 
   get '/auth/:name/callback' do
     user = User.signin_or_register(request.env['omniauth.auth'], request.cookies['firstCountry'])
     set_auth_cookie(user.auth_token)
+    set_flash_cookie('Welcome! You are now signed in.')
     redirect '/'
   end
 
   get '/*' do
     redirect '/'
-  end
-
-  def set_auth_cookie(value)
-    response.set_cookie :auth_token, value: value,
-                                     domain: settings.cookie_domain,
-                                     max_age: '31557600',
-                                     httponly: true,
-                                     path: '/'
   end
 end

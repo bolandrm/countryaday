@@ -54,11 +54,24 @@ app.config(['$routeProvider', function($routeProvider) {
     .otherwise({ redirectTo: '/' });
 }]);
 
-app.run(['$rootScope', '$location', 'Country', 'User', 
-  function($rootScope, $location, Country, User) {
+app.run(['$rootScope', '$cookies', '$timeout', '$location', '$filter', 'Country', 'User', 
+  function($rootScope, $cookies, $timeout, $location, $filter, Country, User) {
     $rootScope.user = User;
 
-    $rootScope.$on('$routeChangeStart', function(event, current, previous) { });
+    // Timeout allows for DOM to be loaded
+    $timeout(function() {
+      var flash = angular.element('body').attr('data-flash');
+      $rootScope.flash = flash.replace('__todaysCountry__', $filter('titleize')(User.countries.today));
+    });
+
+    var initialLoad = true;
+    $rootScope.closeFlash = function() {
+      initialLoad ? (initialLoad = false) : ($rootScope.flash = null);
+    };
+
+    $rootScope.$on('$routeChangeStart', function(event, current, previous) { 
+      $rootScope.closeFlash();
+    });
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
       $rootScope.loading = false;
     });

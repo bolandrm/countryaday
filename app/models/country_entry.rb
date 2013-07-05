@@ -52,7 +52,12 @@ class CountryEntry < ActiveRecord::Base
     day_of_last_country_entry = Time.at(latest_country.created_at).to_date
     today = Time.now.to_date
 
-    add_for_user(user_id) unless day_of_last_country_entry === today
+    if day_of_last_country_entry === today
+      return false
+    else
+      add_for_user(user_id)
+      return true
+    end
   end
 
 private

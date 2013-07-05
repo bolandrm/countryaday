@@ -21,7 +21,8 @@ describe 'authentication' do
   before(:each) { register_and_signout }
 
   it 'allows users to sign out' do
-    register_and_signout
+    signin
+    signout
     expect(passed_data('signed-in')).to eq('false')
   end
 
