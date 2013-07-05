@@ -22,6 +22,7 @@ class CountryADay < Sinatra::Base
   end
 
   configure :production do
+    set :cookie_domain, 'countryaday.org'
     use Rack::Session::Cookie, secret: ENV['RACK_SESSION_COOKIE_SECRET']
   end
 
