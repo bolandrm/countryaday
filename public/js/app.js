@@ -6,17 +6,6 @@ var app = angular.module('countryaday', ['ngCookies']);
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/', {
-      resolve: {
-        routing: ['$route', '$location', 'User', function($route, $location, User) {
-          if (User.countries.today) {
-            $location.path('/country/' + User.countries.today);
-          } else {
-            $location.path('/welcome');
-          }
-        }]
-      }
-    })
-    .when('/welcome', {
       templateUrl: 'js/views/welcome.html',
       controller: 'WelcomeController',
       resolve: {
