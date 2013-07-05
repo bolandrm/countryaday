@@ -27,6 +27,7 @@ class CountryADay < Sinatra::Base
 
   get '/signout' do
     set_auth_cookie(nil)
+    @current_user = nil
     redirect '/'
   end
 
@@ -44,6 +45,7 @@ class CountryADay < Sinatra::Base
     response.set_cookie :auth_token, value: value,
                                      domain: settings.cookie_domain,
                                      max_age: '31557600',
+                                     httponly: true,
                                      path: '/'
   end
 end
