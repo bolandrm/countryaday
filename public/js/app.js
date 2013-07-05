@@ -18,7 +18,12 @@ app.config(['$routeProvider', function($routeProvider) {
     })
     .when('/welcome', {
       templateUrl: 'js/views/welcome.html',
-      controller: 'WelcomeController'
+      controller: 'WelcomeController',
+      resolve: {
+        setup: ['$rootScope', function($rootScope) {
+          $rootScope.hideWelcome = true;
+        }]
+      }
     })
     .when('/my-countries', {
       templateUrl: 'js/views/my-countries.html',
@@ -71,6 +76,7 @@ app.run(['$rootScope', '$cookies', '$timeout', '$location', '$filter', 'Country'
 
     $rootScope.$on('$routeChangeStart', function(event, current, previous) { 
       $rootScope.closeFlash();
+      $rootScope.hideWelcome = false;
     });
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
       $rootScope.loading = false;

@@ -33,7 +33,7 @@
           <a ng-show="user.signedIn" href="#/my-countries" class="btn btn-mini btn-acad-nav">
             <i class="fui-book"></i>My Countries
           </a>
-          <a ng-hide="user.signedIn" href="#/welcome" class="btn btn-mini btn-acad-nav">
+          <a ng-hide="user.signedIn || hideWelcome" href="#/welcome" class="btn btn-mini btn-acad-nav">
             <i class="fui-user"></i>Sign in or Register
           </a>
           <a ng-show="user.countries.today" href="#/country/{{user.countries.today}}" class="btn btn-mini btn-acad-nav">
@@ -49,6 +49,10 @@
       <div class="row">
         <div class="span12">
           <div class="main">
+            <div class="alert alert-success" ng-show="flash" style="margin: 0 20px 10px 20px">
+              <button type="button" class="close fui-cross" ng-click="closeFlash()"></button>
+              {{flash}}
+            </div>
             <div class="loading-services" ng-show="loading.country">
               <div class="row">
                 <div class="offset3 span6">
@@ -70,10 +74,6 @@
                   <h2>Gathering Information<h2>
                 </div>
               </div>
-            </div>
-            <div class="alert alert-success" ng-show="flash" style="margin: 0 20px 10px 20px">
-              <button type="button" class="close fui-cross" ng-click="closeFlash()"></button>
-              {{flash}}
             </div>
             <div ng-hide="loading.country" ng-view></div>
           </div>
