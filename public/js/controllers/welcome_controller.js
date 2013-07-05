@@ -7,7 +7,6 @@ app.controller('WelcomeController', [
     
     $scope.learnFirstCountry = function() {
       var firstCountry = Country.randomCountry();
-      console.log(firstCountry.name);
 
       $cookieStore.put('firstCountry', firstCountry.code);
       $location.path('/country/' + firstCountry.name);
