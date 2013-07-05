@@ -30,3 +30,21 @@ describe 'authentication' do
     expect(passed_data('signed-in')).to eq('true')
   end
 end
+
+describe 'services' do
+  it 'allows facebook sign in' do
+    expect{ visit '/auth/facebook/callback' }.to change{ User.all.count }.by(1)
+  end
+
+  it 'allows github sign in' do
+    expect{ visit '/auth/github/callback' }.to change{ User.all.count }.by(1)
+  end
+
+  it 'allows google sign in' do
+    expect{ visit '/auth/google_oauth2/callback' }.to change{ User.all.count }.by(1)
+  end
+
+  it 'allows twitter sign in' do
+    expect{ visit '/auth/twitter/callback' }.to change{ User.all.count }.by(1)
+  end
+end

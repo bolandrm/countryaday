@@ -24,5 +24,7 @@ OmniAuth.config.add_mock :twitter,
                          uid: '12345', info: { nickname: 'twitternick' }
 OmniAuth.config.add_mock :facebook,
                          uid: '12345', info: { nickname: 'fbnick', email: 'usr@fb.com' }
+OmniAuth.config.add_mock :github,
+                         uid: '12345', info: { nickname: 'ghnick', email: 'usr@gh.com' }
 OmniAuth.config.add_mock :google_oauth2,
                          uid: '12345', info: { name: 'gmname', email: 'usr@gmail.com' }

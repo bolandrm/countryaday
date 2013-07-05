@@ -7,6 +7,7 @@ gem 'pg'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 
 group :development do

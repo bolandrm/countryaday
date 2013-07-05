@@ -12934,6 +12934,16 @@ table td.centered {
 .welcome-buttons h3 {
   margin-top: 20px;
 }
+.welcome-buttons .btn-github-signin {
+  background-color: #999999;
+}
+.welcome-buttons .btn-github-signin:hover {
+  background-color: #AAAAAA;
+}
+.welcome-buttons .btn-github-signin img {
+  height: 17px;
+  width: 17px;
+}
 .btn-first-country {
   margin-bottom: 10px;
 }

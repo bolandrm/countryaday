@@ -5,6 +5,7 @@ require 'yaml'
 require 'omniauth'
 require 'omniauth-facebook'
 require 'omniauth-twitter'
+require 'omniauth-github'
 require 'omniauth-google-oauth2'
 
 class CountryADay < Sinatra::Base
@@ -28,6 +29,7 @@ class CountryADay < Sinatra::Base
     provider :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET']
     provider :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET']
     provider :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET']
+    provider :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
   end
 
   require_relative 'app/countryaday.rb'
