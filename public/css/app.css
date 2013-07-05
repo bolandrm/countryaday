@@ -12926,6 +12926,10 @@ table td.centered {
   text-align: center;
   margin-bottom: 5px;
 }
+.footer a {
+  text-decoration: underline;
+  color: #FFFFFF;
+}
 .welcome-buttons {
   margin-top: 10px;
   padding: 0 20px 0 20px;
