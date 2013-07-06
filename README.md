@@ -28,3 +28,4 @@ from the J Vector Map library.
 2.  It would be nice to provide additional learning resources for each country, even if they are just links.
 3.  The Guardfile setup needs work.
 4.  Javascript tests need major work.
+5.  Singapore is missing from the map.
