@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.ico">
 
-    <link href="css/app.css" type="text/css" rel="stylesheet">
+    <link href="css/app.css?ver=000002" type="text/css" rel="stylesheet">
   </head>
   <body
     <%= "data-signed-in=\"#{signed_in}\"" %>
@@ -92,7 +92,7 @@
 
     <% if ENV['RACK_ENV'] == 'production' %>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-      <script src="js/app.min.js"></script>
+      <script src="js/app.min.js?ver=000002"></script>
     <% else %>
       <script src="vendor/flat/js/jquery-1.8.3.min.js"></script>
       <script src="vendor/jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.min.js"></script>
