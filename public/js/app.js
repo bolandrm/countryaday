@@ -40,8 +40,8 @@ app.config(['$routeProvider', function($routeProvider) {
           var country = Country.fromName($route.current.params.country);
           return GeoNames.getInfo(country.code);
         }],
-        news: ['$route', 'Feedzilla', function($route, Feedzilla) {
-          return Feedzilla.getNews($route.current.params.country);
+        news: ['$route', 'OpenPlatform', function($route, OpenPlatform) {
+          return OpenPlatform.getNews($route.current.params.country);
         }]
       }
     })

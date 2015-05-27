@@ -21,9 +21,9 @@
       <div>
         <h3>In the News</h3>
         <ul>
-          <a ng-repeat="article in news" ng-href="{{article.url}}">
+          <a ng-repeat="article in news" ng-href="{{article.webUrl}}" target="_blank">
             <li>
-              {{article.title}}
+              {{article.webTitle}}
             </li>
           </a>
         </ul>

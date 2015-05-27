@@ -6,7 +6,7 @@ CountryaDay.org is a simple web app that gives you a different country to learn 
 ## Services & Libraries
 Big thanks to the following awesome services and libraries:
 - [Wikipedia](http://wikipedia.org) - Country summary paragraphs
-- [Feedzilla](http://feedzilla.com) - Countries "in the news"
+- [OpenPlatform](http://open-platform.theguardian.com/) - Countries "in the news"
 - [Geonames](http://geonames.org) - Additional Country info
 - [JVectorMap](http://jvectormap.com)
 - Angularjs

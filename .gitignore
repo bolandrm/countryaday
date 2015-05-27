@@ -2,3 +2,6 @@
 
 /config/application.yml
 /config/database.yml
+
+.bundle
+vendor
